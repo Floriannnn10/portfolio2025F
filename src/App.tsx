@@ -1,36 +1,46 @@
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
+import AnimatedBackground from './components/AnimatedBackground';
+import GooeyNavbar from './components/GooeyNavbar';
+import AnimatedHero from './components/AnimatedHero';
+import About from './components/about';
 import Experience from './components/Experience';
-import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Contact from './components/Contact';
+import AnimatedFooter from './components/AnimatedFooter';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import SplashCursor from './components/SplashCursor';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header />
-      <main>
-        <Hero />
+    <div className="relative min-h-screen bg-black text-white overflow-x-hidden">
+      {/* Fond animé */}
+      <AnimatedBackground />
+      
+      {/* Navigation */}
+      <GooeyNavbar />
+      
+      {/* Contenu principal */}
+      <main className="relative z-10">
+        <AnimatedHero />
         <About />
         <Experience />
-        <Projects />
         <Skills />
         <Contact />
       </main>
 
-         {/* Bouton pour remonter */}
-         <ScrollToTopButton />
+      {/* Bouton pour remonter */}
+      <ScrollToTopButton />
 
-
-
-      <footer className="bg-gray-900 text-white py-8">
-        <div className="container mx-auto px-6 text-center">
-          <p>© {new Date().getFullYear()} Portfolio Florian. Tous droits réservés.</p>
-        </div>
-      </footer>
+      {/* Footer animé */}
+      <AnimatedFooter />
+      
+      {/* Animation Splash Cursor */}
+      <SplashCursor 
+        colors={['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444']}
+        size={25}
+        duration={0.8}
+        opacity={0.9}
+      />
     </div>
   );
 }

@@ -1,29 +1,12 @@
 import { motion } from 'framer-motion';
-import { Code2, Globe } from 'lucide-react';
-import {
-  FaHtml5, FaCss3Alt, FaJs, FaPhp, FaLaravel,
-  FaReact, FaGitAlt, FaVuejs
-} from "react-icons/fa";
-import {
-  SiMysql, SiFlutter, SiJquery, SiTypescript, SiApachenetbeanside
-} from "react-icons/si";
-import Flag from 'react-world-flags'; // Importer react-world-flags
+import { Code2, Globe, Zap, Star } from 'lucide-react';
+import Flag from 'react-world-flags';
+import { useInView } from 'react-intersection-observer';
+import AnimatedText from './AnimatedText';
+import AnimatedBadge from './AnimatedBadge';
+import Spider from './Spider';
 
-const technicalSkills = [
-  { name: "HTML", icon: <FaHtml5 className="text-orange-500" size={50} /> },
-  { name: "CSS", icon: <FaCss3Alt className="text-blue-500" size={50} /> },
-  { name: "JavaScript", icon: <FaJs className="text-yellow-400" size={50} /> },
-  { name: "PHP", icon: <FaPhp className="text-indigo-500" size={50} /> },
-  { name: "MySQL", icon: <SiMysql className="text-blue-600" size={50} /> },
-  { name: "Laravel", icon: <FaLaravel className="text-red-500" size={50} /> },
-  { name: "React", icon: <FaReact className="text-cyan-500" size={50} /> },
-  { name: "Git", icon: <FaGitAlt className="text-orange-600" size={50} /> },
-  { name: "Flutter", icon: <SiFlutter className="text-blue-400" size={50} /> },
-  { name: "VueJS", icon: <FaVuejs className="text-green-500" size={50} /> },
-  { name: "jQuery", icon: <SiJquery className="text-purple-500" size={50} /> },
-  { name: "Dév. API", icon: <SiApachenetbeanside className="text-gray-600" size={50} /> },
-  { name: "TypeScript", icon: <SiTypescript className="text-blue-500" size={50} /> },
-];
+
 
 const languages = [
   { name: "Français", level: 80, label: "Niveau intermédiaire", flag: "FR" },
@@ -31,68 +14,125 @@ const languages = [
 ];
 
 export default function Skills() {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true
+  });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
   return (
-    <section id="skills" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl font-bold text-center mb-16"
+    <section id="skills" className="py-20 relative">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
         >
-          Compétences & Expertise
-        </motion.h2>
+          {/* Titre de section */}
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <AnimatedText
+              text="Compétences & Expertise"
+              className="text-5xl md:text-6xl font-bold mb-6"
+              type="word"
+              animation="slide"
+            />
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Découvrez mes compétences techniques et linguistiques
+            </p>
+          </motion.div>
 
-        <div className="space-y-16">
-          {/* Compétences Techniques */}
-          <div>
-            <div className="flex items-center gap-2 mb-8">
-              <Code2 className="text-indigo-600" size={24} />
-              <h3 className="text-2xl font-bold underline">Compétences Techniques</h3>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {technicalSkills.map((skill, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center"
-                >
-                  <div className="flex items-center justify-center mb-4">
-                    {skill.icon}
-                  </div>
-                  <span className="font-medium text-gray-700">{skill.name}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+          <div className="space-y-16">
+            {/* Galerie Circulaire des Compétences */}
+            <motion.div variants={itemVariants}>
+              {/* <div className="flex items-center gap-3 mb-8"></div> */}
+              <div className="flex justify-center">
+                <Spider />
+              </div>
+            </motion.div>
 
-          {/* Langues */}
-          <div>
-            <div className="flex items-center gap-2 mb-8">
-              <Globe className="text-indigo-600" size={24} />
-              <h3 className="text-2xl font-bold underline">Langues</h3>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {languages.map((lang, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center text-center"
-                >
-                  <div className="flex items-center justify-center gap-2 mb-4">
-                    <Flag code={lang.flag} className="w-12 h-12" />
-                    <span className="font-medium text-gray-700">{lang.name}</span>
-                  </div>
-                  <span className="text-gray-500">{lang.label}</span>
-                </motion.div>
-              ))}
-            </div>
+            {/* Langues */}
+            <motion.div variants={itemVariants}>
+              <div className="flex items-center gap-3 mb-8">
+                <div className="p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg">
+                  <Globe className="text-green-400" size={24} />
+                </div>
+                <h3 className="text-2xl font-bold text-white">Langues</h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {languages.map((lang, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ 
+                      scale: 1.05,
+                      y: -5,
+                      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
+                    }}
+                    className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-8 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-green-500/30 transition-all duration-300"
+                  >
+                    <div className="flex items-center justify-center gap-4 mb-6">
+                      <Flag code={lang.flag} className="w-12 h-12 rounded-lg shadow-lg" />
+                      <span className="font-semibold text-white text-xl">{lang.name}</span>
+                    </div>
+                    <div className="text-center">
+                      <span className="text-gray-400 mb-3 block">{lang.label}</span>
+                      <div className="flex items-center justify-between text-sm text-gray-400 mb-2">
+                        <span>Niveau</span>
+                        <span>{lang.level}%</span>
+                      </div>
+                      <div className="w-full bg-gray-700 rounded-full h-3">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${lang.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.2 }}
+                          className="bg-gradient-to-r from-green-500 to-emerald-500 h-3 rounded-full"
+                        />
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Badge de compétences */}
+            <motion.div variants={itemVariants} className="text-center">
+              <AnimatedBadge
+                variant="gradient"
+                size="lg"
+                className="mb-4"
+              >
+                <Zap size={20} className="mr-2" />
+                Développeur Full Stack Passionné
+              </AnimatedBadge>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Toujours en apprentissage et à la recherche de nouvelles technologies pour créer des expériences web exceptionnelles.
+              </p>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
