@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Code, Zap, Star, Globe, Smartphone, Monitor, Play, Pause } from 'lucide-react';
-import Image_projet_un from '../assets/image_projet_un.png';
+import Image_projet_un from '../assets/Image_projet_un.png';
 import image_deux from '../assets/image_deux.png';
 import projet_trois from '../assets/projet_trois.png';
 import app_mobile_quizz from '../assets/app_mobile_quizz.jpg';
