@@ -5,6 +5,7 @@ import AnimatedHero from './components/AnimatedHero';
 import About from './components/about';
 import Experience from './components/Experience';
 import Skills from './components/Skills';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
 import AnimatedFooter from './components/AnimatedFooter';
 import ScrollToTopButton from './components/ScrollToTopButton';
@@ -25,6 +26,7 @@ function App() {
         <About />
         <Experience />
         <Skills />
+        <Projects />
         <Contact />
       </main>
 
@@ -35,12 +37,7 @@ function App() {
       <AnimatedFooter />
       
       {/* Animation Splash Cursor */}
-      <SplashCursor 
-        colors={['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444']}
-        size={25}
-        duration={0.8}
-        opacity={0.9}
-      />
+      <SplashCursor />
     </div>
   );
 }
