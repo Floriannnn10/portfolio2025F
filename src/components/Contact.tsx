@@ -23,19 +23,19 @@ const contactInfo = [
   {
     icon: <MapPin size={24} />,
     title: "Localisation",
-    value: "Côte D'Ivoire",
+    value: "Côte D'Ivoire, Abidjan, Cocody Angré",
     link: null,
     color: "from-purple-500 to-pink-500"
   }
 ];
 
 const socialLinks = [
-  {
-    icon: <FaWhatsapp size={24} />,
-    name: "WhatsApp",
-    link: "https://wa.me/2250150270264",
-    color: "from-green-500 to-emerald-500"
-  },
+  // {
+  //   icon: <FaWhatsapp size={24} />,
+  //   name: "WhatsApp",
+  //   link: "https://wa.me/2250150270264",
+  //   color: "from-green-500 to-emerald-500"
+  // },
   {
     icon: <FaLinkedin size={24} />,
     name: "LinkedIn",
@@ -45,7 +45,7 @@ const socialLinks = [
   {
     icon: <FaGithub size={24} />,
     name: "GitHub",
-    link: "https://github.com/votre-username",
+    link: "https://github.com/",
     color: "from-gray-600 to-gray-700"
   }
 ];

@@ -43,15 +43,16 @@ const AnimatedFooter: React.FC = () => {
   };
 
   const socialLinks = [
-    { icon: <Github size={20} />, href: "#", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "#", label: "LinkedIn" },
-    { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
-    { icon: <Mail size={20} />, href: "mailto:contact@florian.com", label: "Email" }
+    { icon: <Github size={20} />, href: "https://github.com/", label: "GitHub" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/georges-emmanuel-banga/", label: "LinkedIn" },
+    // { icon: <Twitter size={20} />, href: "#", label: "Twitter" },
+    { icon: <Mail size={20} />, href: "mailto:bangageorgesemmanuel.12@gmail.com", label: "Email" }
   ];
 
   const quickLinks = [
     { name: "Accueil", href: "#home" },
     { name: "À propos", href: "#about" },
+    { name: "Expérience", href: "#experience" },
     { name: "Projets", href: "#projects" },
     { name: "Contact", href: "#contact" }
   ];
@@ -60,7 +61,7 @@ const AnimatedFooter: React.FC = () => {
     "Développement Web",
     "Applications Mobile",
     "Design UI/UX",
-    "Consultation Tech"
+    // "Consultation Tech"
   ];
 
   return (
@@ -86,7 +87,7 @@ const AnimatedFooter: React.FC = () => {
               whileHover={{ scale: 1.05 }}
               className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-6"
             >
-              Florian Banga
+              Florian 
             </motion.div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               Développeur Full Stack passionné par la création d'expériences numériques exceptionnelles. 
@@ -161,21 +162,21 @@ const AnimatedFooter: React.FC = () => {
                 className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
               >
                 <Mail size={18} className="mr-3 text-blue-400" />
-                <span>contact@florian.com</span>
+                <span>bangageorgesemmanuel.12@gmail.com</span>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
                 className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
               >
                 <Phone size={18} className="mr-3 text-blue-400" />
-                <span>+33 6 12 34 56 78</span>
+                <span>+225 01 50 27 02 64</span>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
                 className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
               >
                 <MapPin size={18} className="mr-3 text-blue-400" />
-                <span>Paris, France</span>
+                <span>Abidjan, Côte d'Ivoire</span>
               </motion.div>
             </div>
           </motion.div>
@@ -255,7 +256,7 @@ const AnimatedFooter: React.FC = () => {
               >
                 <Sparkles size={16} className="text-yellow-400" />
               </motion.div>
-              <span>en France</span>
+              <span>en Côte d'Ivoire</span>
             </motion.div>
           </div>
         </motion.div>
