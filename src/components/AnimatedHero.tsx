@@ -65,18 +65,18 @@ const AnimatedHero: React.FC = () => {
       <motion.div
         ref={ref}
         style={{ y, opacity }}
-        className="relative z-10 text-center px-6 max-w-6xl mx-auto"
+        className="relative z-10 text-center px-4 md:px-6 max-w-6xl mx-auto"
       >
         <motion.div
           variants={textVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="space-y-4"
+          className="space-y-4 md:space-y-6"
         >
           {/* Titre principal */}
           <motion.h1
             variants={letterVariants}
-            className="text-6xl md:text-8xl font-bold text-white leading-tight"
+            className="text-4xl md:text-6xl lg:text-8xl font-bold text-white leading-tight"
           >
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent">
               Florian
@@ -88,7 +88,7 @@ const AnimatedHero: React.FC = () => {
           {/* Sous-titre animé */}
           <motion.div
             variants={letterVariants}
-            className="text-2xl md:text-3xl text-gray-300 font-light"
+            className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-light"
           >
             <span className="inline-block">
               Développeur
@@ -96,7 +96,7 @@ const AnimatedHero: React.FC = () => {
             <motion.span
               variants={floatingVariants}
               animate="animate"
-              className="inline-block mx-4 text-blue-400"
+              className="inline-block mx-2 md:mx-4 text-blue-400"
             >
               FullStack
             </motion.span>
@@ -108,7 +108,7 @@ const AnimatedHero: React.FC = () => {
           {/* Description */}
           <motion.p
             variants={letterVariants}
-            className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-base md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed px-4 md:px-0"
           >
             Je transforme vos idées en expériences numériques exceptionnelles. 
             Spécialisé dans le développement web moderne avec une approche centrée sur l'utilisateur.

@@ -73,29 +73,29 @@ const AnimatedFooter: React.FC = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6">
         <motion.div
           ref={ref}
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-16"
         >
           {/* Section Logo */}
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-6"
+              className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent mb-6"
             >
               Florian 
             </motion.div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
+            <p className="text-gray-400 mb-6 leading-relaxed text-sm md:text-base">
               Développeur Full Stack passionné par la création d'expériences numériques exceptionnelles. 
               Transformons vos idées en réalité.
             </p>
             
             {/* Social Links */}
-            <div className="flex space-x-4">
+            <div className="flex space-x-3 md:space-x-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={index}
@@ -106,7 +106,7 @@ const AnimatedFooter: React.FC = () => {
                     boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
                   }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-12 h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-white border border-white/10 backdrop-blur-sm hover:border-blue-400/50 transition-all duration-300"
+                  className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full flex items-center justify-center text-white border border-white/10 backdrop-blur-sm hover:border-blue-400/50 transition-all duration-300"
                   aria-label={social.label}
                 >
                   {social.icon}
@@ -117,8 +117,8 @@ const AnimatedFooter: React.FC = () => {
 
           {/* Quick Links */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-semibold text-white mb-6">Navigation</h3>
-            <ul className="space-y-4">
+            <h3 className="text-lg md:text-xl font-semibold text-white mb-6">Navigation</h3>
+            <ul className="space-y-3 md:space-y-4">
               {quickLinks.map((link, index) => (
                 <motion.li
                   key={index}
@@ -127,7 +127,7 @@ const AnimatedFooter: React.FC = () => {
                 >
                   <a
                     href={link.href}
-                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 flex items-center group text-sm md:text-base"
                   >
                     <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     {link.name}
@@ -139,13 +139,13 @@ const AnimatedFooter: React.FC = () => {
 
           {/* Services */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-semibold text-white mb-6">Services</h3>
-            <ul className="space-y-4">
+            <h3 className="text-lg md:text-xl font-semibold text-white mb-6">Services</h3>
+            <ul className="space-y-3 md:space-y-4">
               {services.map((service, index) => (
                 <motion.li
                   key={index}
                   whileHover={{ x: 5 }}
-                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 cursor-pointer"
+                  className="text-gray-400 hover:text-blue-400 transition-colors duration-300 cursor-pointer text-sm md:text-base"
                 >
                   {service}
                 </motion.li>
@@ -155,27 +155,27 @@ const AnimatedFooter: React.FC = () => {
 
           {/* Contact Info */}
           <motion.div variants={itemVariants}>
-            <h3 className="text-xl font-semibold text-white mb-6">Contact</h3>
-            <div className="space-y-4">
+            <h3 className="text-lg md:text-xl font-semibold text-white mb-6">Contact</h3>
+            <div className="space-y-3 md:space-y-4">
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm md:text-base"
               >
-                <Mail size={18} className="mr-3 text-blue-400" />
-                <span>bangageorgesemmanuel.12@gmail.com</span>
+                <Mail size={16} className="mr-3 text-blue-400 flex-shrink-0" />
+                <span className="break-all">bangageorgesemmanuel.12@gmail.com</span>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm md:text-base"
               >
-                <Phone size={18} className="mr-3 text-blue-400" />
+                <Phone size={16} className="mr-3 text-blue-400 flex-shrink-0" />
                 <span>+225 01 50 27 02 64</span>
               </motion.div>
               <motion.div
                 whileHover={{ x: 5 }}
-                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                className="flex items-center text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm md:text-base"
               >
-                <MapPin size={18} className="mr-3 text-blue-400" />
+                <MapPin size={16} className="mr-3 text-blue-400 flex-shrink-0" />
                 <span>Abidjan, Côte d'Ivoire</span>
               </motion.div>
             </div>
@@ -185,25 +185,25 @@ const AnimatedFooter: React.FC = () => {
         {/* Newsletter Section */}
         <motion.div
           variants={itemVariants}
-          className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-8 mb-16 border border-white/10 backdrop-blur-sm"
+          className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl p-6 md:p-8 mb-16 border border-white/10 backdrop-blur-sm"
         >
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">
               Restez connecté
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-gray-400 mb-6 text-sm md:text-base">
               Recevez mes dernières actualités et projets directement dans votre boîte mail
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Votre email"
-                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-300"
+                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-full text-white placeholder-gray-400 focus:outline-none focus:border-blue-400 transition-colors duration-300 text-sm md:text-base"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300"
+                className="px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:shadow-lg transition-all duration-300 text-sm md:text-base"
               >
                 S'abonner
               </motion.button>
@@ -218,14 +218,14 @@ const AnimatedFooter: React.FC = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
             <motion.p
-              className="text-gray-400 text-center md:text-left mb-4 md:mb-0"
+              className="text-gray-400 text-center md:text-left mb-4 md:mb-0 text-sm md:text-base"
               whileHover={{ scale: 1.02 }}
             >
               © {new Date().getFullYear()} Florian Banga. Tous droits réservés.
             </motion.p>
             
             <motion.div
-              className="flex items-center space-x-2 text-gray-400"
+              className="flex items-center space-x-2 text-gray-400 text-sm md:text-base"
               whileHover={{ scale: 1.05 }}
             >
               <span>Fait avec</span>
@@ -240,7 +240,7 @@ const AnimatedFooter: React.FC = () => {
                   repeatDelay: 3
                 }}
               >
-                <Heart size={16} className="text-red-500" />
+                <Heart size={14} className="text-red-500" />
               </motion.div>
               <span>et</span>
               <motion.div
@@ -254,7 +254,7 @@ const AnimatedFooter: React.FC = () => {
                   ease: "linear"
                 }}
               >
-                <Sparkles size={16} className="text-yellow-400" />
+                <Sparkles size={14} className="text-yellow-400" />
               </motion.div>
               <span>en Côte d'Ivoire</span>
             </motion.div>

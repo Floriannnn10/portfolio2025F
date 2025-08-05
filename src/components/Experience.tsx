@@ -83,17 +83,17 @@ export default function Experience() {
           <motion.div variants={itemVariants} className="text-center mb-16">
             <AnimatedText
               text="Expérience Professionnelle"
-              className="text-5xl md:text-6xl font-bold mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               type="word"
               animation="slide"
             />
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
               Découvrez mon parcours professionnel et mes réalisations
             </p>
           </motion.div>
 
-          {/* Timeline des expériences */}
-          <motion.div variants={itemVariants} className="relative">
+          {/* Timeline des expériences - Version Desktop */}
+          <motion.div variants={itemVariants} className="relative hidden md:block">
             {/* Ligne de timeline */}
             <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-green-500/50 rounded-full" />
             
@@ -118,7 +118,7 @@ export default function Experience() {
                   <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
                     <motion.div
                       whileHover={{ scale: 1.05 }}
-                      className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-8 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
+                      className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-6 md:p-8 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
                     >
                       <div className="flex items-center gap-4 mb-4">
                         <div className={`p-3 bg-gradient-to-r ${exp.color} rounded-xl text-white`}>
@@ -126,13 +126,46 @@ export default function Experience() {
                         </div>
                         <span className="text-sm text-gray-400 font-medium">{exp.period}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-white mb-3">{exp.title}</h3>
-                      <p className="text-gray-400 leading-relaxed">{exp.description}</p>
+                      <h3 className="text-lg md:text-xl font-bold text-white mb-3">{exp.title}</h3>
+                      <p className="text-gray-400 leading-relaxed text-sm md:text-base">{exp.description}</p>
                     </motion.div>
                   </div>
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          {/* Version Mobile - Liste simple */}
+          <motion.div variants={itemVariants} className="md:hidden space-y-6">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -5,
+                  boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
+                }}
+                className="relative"
+              >
+                {/* Indicateur de progression mobile */}
+                <div className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-green-500/50 rounded-full" />
+                
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300 ml-4"
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`p-3 bg-gradient-to-r ${exp.color} rounded-xl text-white`}>
+                      {exp.icon}
+                    </div>
+                    <span className="text-sm text-gray-400 font-medium">{exp.period}</span>
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-3">{exp.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm">{exp.description}</p>
+                </motion.div>
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
       </div>

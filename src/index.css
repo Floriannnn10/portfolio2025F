@@ -191,6 +191,110 @@ section, div, main, header, footer {
   .glass-effect-dark {
     backdrop-filter: blur(5px);
   }
+
+  /* Améliorations pour mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Ajuster les espacements sur mobile */
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  /* Améliorer la lisibilité du texte sur mobile */
+  p, span, div {
+    line-height: 1.6;
+  }
+
+  /* Optimiser les boutons sur mobile */
+  button, a {
+    min-height: 44px; /* Taille minimale recommandée pour les éléments tactiles */
+  }
+
+  /* Améliorer l'espacement des grilles sur mobile */
+  .grid {
+    gap: 1rem;
+  }
+
+  /* Optimiser les images sur mobile */
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Améliorer la navigation mobile */
+  nav {
+    padding: 0.5rem 1rem;
+  }
+
+  /* Optimiser les formulaires sur mobile */
+  input, textarea, select {
+    font-size: 16px; /* Éviter le zoom sur iOS */
+    padding: 0.75rem;
+  }
+
+  /* Améliorer l'affichage des cartes sur mobile */
+  .card, .project-card {
+    margin-bottom: 1rem;
+  }
+
+  /* Optimiser les animations sur mobile pour les performances */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Améliorations pour les très petits écrans */
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  /* Réduire les tailles de police sur très petits écrans */
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  /* Optimiser les boutons sur très petits écrans */
+  button, a {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Améliorations pour les écrans moyens */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 /* Optimisations de performance */

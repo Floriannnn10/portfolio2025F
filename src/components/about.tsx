@@ -86,11 +86,11 @@ export default function About() {
                     <motion.div variants={itemVariants} className="text-center mb-16">
                         <AnimatedText
                             text="À propos de moi"
-                            className="text-5xl md:text-6xl font-bold mb-6"
+                            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
                             type="word"
                             animation="slide"
                         />
-                        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
                             Découvrez mon parcours, mes compétences et ma passion pour le développement
                         </p>
                     </motion.div>
@@ -98,14 +98,14 @@ export default function About() {
                     {/* Portrait + Infos perso */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-20"
+                        className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 mb-20"
                     >
                         {/* Photo avec effet */}
                         <motion.div
                             whileHover={{ scale: 1.05 }}
                             className="relative"
                         >
-                            <div className="w-80 h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-1">
+                            <div className="w-64 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-1">
                                 <img
                                     src={person.imageUrl}
                                     alt="Photo de Florian"
@@ -116,11 +116,11 @@ export default function About() {
                         </motion.div>
 
                         {/* Infos Perso */}
-                        <div className="max-w-xl space-y-6">
+                        <div className="max-w-xl space-y-6 text-center lg:text-left">
                             <div>
                                 <AnimatedText
                                     text={`Helloooo, je suis ${person.name}`}
-                                    className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
+                                    className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4"
                                     type="word"
                                     animation="slide"
                                     delay={0.2}
@@ -128,7 +128,7 @@ export default function About() {
                                 <AnimatedBadge
                                     variant="gradient"
                                     size="lg"
-                                    className="mb-6 text-xl md:text-2xl"
+                                    className="mb-6 text-lg md:text-xl lg:text-2xl"
                                 >
                                     {person.profession}
                                 </AnimatedBadge>
@@ -137,31 +137,31 @@ export default function About() {
                             <div className="space-y-4">
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-xl"
+                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
                                 >
                                     <span className="w-3 h-3 bg-blue-400 rounded-full mr-4" />
-                                    <strong className="text-white text-xl">Âge :</strong> <span className="text-xl">{person.age}</span>
+                                    <strong className="text-white text-lg md:text-xl">Âge :</strong> <span className="text-lg md:text-xl">{person.age}</span>
                                 </motion.div>
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-xl"
+                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
                                 >
                                     <span className="w-3 h-3 bg-purple-400 rounded-full mr-4" />
-                                    <strong className="text-white text-xl">Adresse :</strong> <span className="text-xl">{person.address}</span>
+                                    <strong className="text-white text-lg md:text-xl">Adresse :</strong> <span className="text-lg md:text-xl">{person.address}</span>
                                 </motion.div>
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-xl"
+                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
                                 >
                                     <span className="w-3 h-3 bg-cyan-400 rounded-full mr-4" />
-                                    <strong className="text-white text-xl">Email :</strong> <span className="text-xl">{person.email}</span>
+                                    <strong className="text-white text-lg md:text-xl">Email :</strong> <span className="text-lg md:text-xl break-all">{person.email}</span>
                                 </motion.div>
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-xl"
+                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
                                 >
                                     <span className="w-3 h-3 bg-green-400 rounded-full mr-4" />
-                                    <strong className="text-white text-xl">Téléphone :</strong> <span className="text-xl">{person.phone}</span>
+                                    <strong className="text-white text-lg md:text-xl">Téléphone :</strong> <span className="text-lg md:text-xl">{person.phone}</span>
                                 </motion.div>
                             </div>
 
@@ -170,9 +170,9 @@ export default function About() {
                                 download
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:text-white text-lg"
+                                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:text-white text-base md:text-lg"
                             >
-                                <Download size={24} />
+                                <Download size={20} className="md:w-6 md:h-6" />
                                 Télécharger mon CV
                             </motion.a>
                         </div>
@@ -182,15 +182,15 @@ export default function About() {
                     <motion.div variants={itemVariants} className="text-center">
                         <AnimatedText
                             text="Mes Services"
-                            className="text-4xl md:text-5xl font-bold mb-6"
+                            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
                             type="word"
                             animation="slide"
                         />
-                        <p className="text-gray-400 max-w-3xl mx-auto mb-12 text-lg">
+                        <p className="text-gray-400 max-w-3xl mx-auto mb-12 text-base md:text-lg">
                             Voici ce que je propose en tant que développeur passionné et polyvalent :
                         </p>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
                             {person.services.map((service, index) => (
                                 <motion.div
                                     key={index}
@@ -200,18 +200,18 @@ export default function About() {
                                         y: -5,
                                         boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
                                     }}
-                                    className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-8 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
+                                    className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-6 md:p-8 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
                                 >
                                     <div className="flex items-center gap-4 mb-4">
                                         <div className="p-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl text-blue-400">
                                             {service.icon}
                                         </div>
-                                        <h4 className="text-xl font-semibold text-white">
+                                        <h4 className="text-lg md:text-xl font-semibold text-white">
                                             {service.title}
                                         </h4>
                                     </div>
                                     <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4" />
-                                    <p className="text-gray-400 leading-relaxed">
+                                    <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                                         {service.description}
                                     </p>
                                 </motion.div>

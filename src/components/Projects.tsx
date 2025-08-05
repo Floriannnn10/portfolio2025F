@@ -105,15 +105,6 @@ const projects = [
   //   github: "https://floriannn10.alwaysdata.net/Projet%20De%20PHP/Accueil.php",
   //   // live: "#"
   // },
-
-  // {
-  //   title: "Calculatrice",
-  //   description: "Le projet consiste en la création d'une calculatrice simple en utilisant HTML, CSS et PHP. L'application permet aux utilisateurs de calculer la moyenne de plusieurs notes en renvoyant un mail grâce à l'outil `PHP MAILER`.",
-  //   image: image_deux,
-  //   tech: ["HTML", "CSS", "PHP"],
-  //   github: "https://floriannn10.alwaysdata.net/Projet%20De%20PHP/Accueil.php",
-  //   // live: "#"
-  // },
   // Add more projects when you have the actual data
 ];
 
@@ -208,16 +199,16 @@ export default function Projects() {
           <motion.div variants={itemVariants} className="text-center mb-16">
             <AnimatedText
               text="Projets Réalisés"
-              className="text-5xl md:text-6xl font-bold mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               type="word"
               animation="slide"
             />
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
               Découvrez mes réalisations et projets personnels
             </p>
 
             {/* Filtres */}
-            <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
+            <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12">
               {[
                 { key: 'all', label: 'Tous les projets', icon: Code },
                 { key: 'web', label: 'Projets Web', icon: Monitor },
@@ -228,13 +219,13 @@ export default function Projects() {
                   onClick={() => setActiveFilter(filter.key)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                  className={`flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                     activeFilter === filter.key
                       ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                       : 'bg-gray-800/50 text-gray-400 hover:text-white border border-gray-700 hover:border-blue-500/30'
                   }`}
                 >
-                  {React.createElement(filter.icon, { size: 18 })}
+                  {React.createElement(filter.icon, { size: 16 })}
                   {filter.label}
                 </motion.button>
               ))}
@@ -242,7 +233,7 @@ export default function Projects() {
           </motion.div>
 
           {/* Grille des projets */}
-          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {filteredProjects.length > 0 ? (
               filteredProjects.map((project, index) => (
                 <motion.div
@@ -260,7 +251,7 @@ export default function Projects() {
                                          {project.isVideo ? (
                        <video
                          src={project.image}
-                         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                         className="w-full h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                          muted
                          loop
                          onPlay={() => setPlayingVideos(prev => ({ ...prev, [project.title]: true }))}
@@ -271,7 +262,7 @@ export default function Projects() {
                        <img
                          src={project.image}
                          alt={project.title}
-                         className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                         className="w-full h-48 md:h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                        />
                      )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -315,12 +306,12 @@ export default function Projects() {
                   </div>
 
                   {/* Contenu du projet */}
-                  <div className="p-8">
+                  <div className="p-6 md:p-8">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg">
-                        <Code className="text-blue-400" size={24} />
+                        <Code className="text-blue-400" size={20} />
                       </div>
-                      <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                      <h3 className="text-xl md:text-2xl font-bold text-white">{project.title}</h3>
                     </div>
 
                     {/* Badge de catégorie */}
@@ -334,7 +325,7 @@ export default function Projects() {
                       </motion.div>
                     )}
 
-                    <p className="text-gray-400 leading-relaxed mb-6">
+                    <p className="text-gray-400 leading-relaxed mb-6 text-sm md:text-base">
                       {project.description}
                     </p>
 
@@ -344,7 +335,7 @@ export default function Projects() {
                         <motion.span
                           key={techIndex}
                           whileHover={{ scale: 1.05 }}
-                          className="px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 rounded-full text-sm font-medium border border-blue-500/30"
+                          className="px-3 md:px-4 py-1 md:py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-blue-400 rounded-full text-xs md:text-sm font-medium border border-blue-500/30"
                         >
                           {tech}
                         </motion.span>
@@ -368,9 +359,9 @@ export default function Projects() {
                          }}
                          whileHover={{ scale: 1.05 }}
                          whileTap={{ scale: 0.95 }}
-                         className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-semibold hover:from-white hover:to-white hover:text-gray-900 transition-all duration-300"
+                         className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-full font-semibold hover:from-white hover:to-white hover:text-gray-900 transition-all duration-300 text-sm md:text-base"
                        >
-                         {playingVideos[project.title] ? <Pause size={20} /> : <Play size={20} />}
+                         {playingVideos[project.title] ? <Pause size={16} /> : <Play size={16} />}
                          {playingVideos[project.title] ? "Pause" : "Voir la démo"}
                        </motion.button>
                      ) : (
@@ -380,9 +371,9 @@ export default function Projects() {
                          rel="noopener noreferrer"
                          whileHover={{ scale: 1.05 }}
                          whileTap={{ scale: 0.95 }}
-                         className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:from-white hover:to-white hover:text-gray-900 transition-all duration-300"
+                         className="inline-flex items-center gap-2 px-4 md:px-6 py-2 md:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:from-white hover:to-white hover:text-gray-900 transition-all duration-300 text-sm md:text-base"
                        >
-                         <ExternalLink size={20} />
+                         <ExternalLink size={16} />
                          Voir le projet
                        </motion.a>
                      )}

@@ -92,26 +92,26 @@ export default function Contact() {
           <motion.div variants={itemVariants} className="text-center mb-16">
             <AnimatedText
               text="Me Contacter"
-              className="text-5xl md:text-6xl font-bold mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
               type="word"
               animation="slide"
             />
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
               Prêt à collaborer ? Contactez-moi pour discuter de vos projets
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
             {/* Informations de contact */}
             <motion.div variants={itemVariants}>
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
                 <div className="p-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg">
-                  <MessageCircle className="text-blue-400" size={24} />
+                  <MessageCircle className="text-blue-400" size={20} />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Informations de Contact</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white">Informations de Contact</h3>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.div
                     key={index}
@@ -121,23 +121,23 @@ export default function Contact() {
                       x: 5,
                       boxShadow: "0 10px 30px rgba(0, 0, 0, 0.3)"
                     }}
-                    className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
+                    className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-4 md:p-6 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
                   >
-                    <div className="flex items-center gap-4">
-                      <div className={`p-3 bg-gradient-to-r ${info.color} rounded-xl text-white`}>
+                    <div className="flex items-center gap-3 md:gap-4">
+                      <div className={`p-2 md:p-3 bg-gradient-to-r ${info.color} rounded-xl text-white`}>
                         {info.icon}
                       </div>
                       <div className="flex-1">
-                        <h4 className="text-white font-semibold mb-1">{info.title}</h4>
+                        <h4 className="text-white font-semibold mb-1 text-sm md:text-base">{info.title}</h4>
                         {info.link ? (
                           <a
                             href={info.link}
-                            className="text-gray-400 hover:text-blue-400 transition-colors duration-300"
+                            className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm md:text-base break-all"
                           >
                             {info.value}
                           </a>
                         ) : (
-                          <span className="text-gray-400">{info.value}</span>
+                          <span className="text-gray-400 text-sm md:text-base">{info.value}</span>
                         )}
                       </div>
                     </div>
@@ -146,14 +146,14 @@ export default function Contact() {
               </div>
 
               {/* Réseaux sociaux */}
-              <motion.div variants={itemVariants} className="mt-8">
-                <div className="flex items-center gap-3 mb-6">
+              <motion.div variants={itemVariants} className="mt-6 md:mt-8">
+                <div className="flex items-center gap-3 mb-4 md:mb-6">
                   <div className="p-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-lg">
-                    <Globe className="text-green-400" size={24} />
+                    <Globe className="text-green-400" size={20} />
                   </div>
-                  <h4 className="text-xl font-semibold text-white">Réseaux Sociaux</h4>
+                  <h4 className="text-lg md:text-xl font-semibold text-white">Réseaux Sociaux</h4>
                 </div>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                   {socialLinks.map((social, index) => (
                     <motion.a
                       key={index}
@@ -166,12 +166,12 @@ export default function Contact() {
                         y: -5,
                         boxShadow: "0 15px 35px rgba(0, 0, 0, 0.3)"
                       }}
-                      className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-4 rounded-xl border border-white/10 backdrop-blur-sm hover:border-green-500/30 transition-all duration-300 text-center"
+                      className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-3 md:p-4 rounded-xl border border-white/10 backdrop-blur-sm hover:border-green-500/30 transition-all duration-300 text-center"
                     >
-                      <div className={`p-3 bg-gradient-to-r ${social.color} rounded-lg text-white mb-2 mx-auto w-fit`}>
+                      <div className={`p-2 md:p-3 bg-gradient-to-r ${social.color} rounded-lg text-white mb-2 mx-auto w-fit`}>
                         {social.icon}
                       </div>
-                      <span className="text-white text-sm font-medium">{social.name}</span>
+                      <span className="text-white text-xs md:text-sm font-medium">{social.name}</span>
                     </motion.a>
                   ))}
                 </div>
@@ -180,49 +180,49 @@ export default function Contact() {
 
             {/* Formulaire de contact */}
             <motion.div variants={itemVariants}>
-              <div className="flex items-center gap-3 mb-8">
+              <div className="flex items-center gap-3 mb-6 md:mb-8">
                 <div className="p-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg">
-                  <Send className="text-purple-400" size={24} />
+                  <Send className="text-purple-400" size={20} />
                 </div>
-                <h3 className="text-2xl font-bold text-white">Envoyez-moi un message</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white">Envoyez-moi un message</h3>
               </div>
 
               <motion.form
                 variants={itemVariants}
-                className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-8 rounded-2xl border border-white/10 backdrop-blur-sm"
+                className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-6 md:p-8 rounded-2xl border border-white/10 backdrop-blur-sm"
               >
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4 md:space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     <div>
-                      <label className="block text-white font-medium mb-2">Nom</label>
+                      <label className="block text-white font-medium mb-2 text-sm md:text-base">Nom</label>
                       <input
                         type="text"
-                        className="w-full px-4 py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 text-sm md:text-base"
                         placeholder="Votre nom"
                       />
                     </div>
                     <div>
-                      <label className="block text-white font-medium mb-2">Email</label>
+                      <label className="block text-white font-medium mb-2 text-sm md:text-base">Email</label>
                       <input
                         type="email"
-                        className="w-full px-4 py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                        className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 text-sm md:text-base"
                         placeholder="votre@email.com"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-white font-medium mb-2">Sujet</label>
+                    <label className="block text-white font-medium mb-2 text-sm md:text-base">Sujet</label>
                     <input
                       type="text"
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 text-sm md:text-base"
                       placeholder="Sujet de votre message"
                     />
                   </div>
                   <div>
-                    <label className="block text-white font-medium mb-2">Message</label>
+                    <label className="block text-white font-medium mb-2 text-sm md:text-base">Message</label>
                     <textarea
                       rows={6}
-                      className="w-full px-4 py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 resize-none"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 transition-colors duration-300 resize-none text-sm md:text-base"
                       placeholder="Votre message..."
                     />
                   </div>
@@ -230,9 +230,9 @@ export default function Contact() {
                     type="submit"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2"
+                    className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 md:py-4 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2 text-sm md:text-base"
                   >
-                    <Send size={20} />
+                    <Send size={18} />
                     Envoyer le message
                   </motion.button>
                 </div>
@@ -241,16 +241,16 @@ export default function Contact() {
           </div>
 
           {/* Badge de disponibilité */}
-          <motion.div variants={itemVariants} className="text-center mt-12">
+          <motion.div variants={itemVariants} className="text-center mt-8 md:mt-12">
             <AnimatedBadge
               variant="gradient"
               size="lg"
               className="mb-4"
             >
-              <MessageCircle size={20} className="mr-2" />
+              <MessageCircle size={18} className="mr-2" />
               Disponible pour de nouveaux projets
             </AnimatedBadge>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
               Je suis toujours ouvert à de nouvelles opportunités et collaborations passionnantes.
             </p>
           </motion.div>
