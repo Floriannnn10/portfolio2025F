@@ -21,7 +21,7 @@ function App() {
       <GooeyNavbar />
       
       {/* Contenu principal */}
-      <main className="relative z-10">
+      <main className="relative z-10 pt-20">
         <AnimatedHero />
         <About />
         <Experience />

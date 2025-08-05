@@ -11,8 +11,12 @@ const AnimatedBackground: React.FC = () => {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
 
     const particles: Array<{
       x: number;
@@ -23,13 +27,14 @@ const AnimatedBackground: React.FC = () => {
       opacity: number;
     }> = [];
 
-    // Créer les particules
-    for (let i = 0; i < 100; i++) {
+    // Créer les particules - nombre adapté pour mobile et desktop
+    const particleCount = window.innerWidth < 768 ? 50 : 100;
+    for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
         size: Math.random() * 2 + 1,
         opacity: Math.random() * 0.5 + 0.2,
       });
@@ -38,7 +43,7 @@ const AnimatedBackground: React.FC = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Dessiner le gradient de fond
+      // Dessiner le gradient de fond - identique sur mobile et desktop
       const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
       gradient.addColorStop(0, '#0a0a0a');
       gradient.addColorStop(0.5, '#1a1a2e');
@@ -59,18 +64,19 @@ const AnimatedBackground: React.FC = () => {
         ctx.fillStyle = `rgba(100, 150, 255, ${particle.opacity})`;
         ctx.fill();
 
-        // Connecter les particules proches
+        // Connecter les particules proches - distance adaptée pour mobile
+        const connectionDistance = window.innerWidth < 768 ? 80 : 100;
         particles.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex) {
             const dx = particle.x - otherParticle.x;
             const dy = particle.y - otherParticle.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance < 100) {
+            if (distance < connectionDistance) {
               ctx.beginPath();
               ctx.moveTo(particle.x, particle.y);
               ctx.lineTo(otherParticle.x, otherParticle.y);
-              ctx.strokeStyle = `rgba(100, 150, 255, ${0.1 * (1 - distance / 100)})`;
+              ctx.strokeStyle = `rgba(100, 150, 255, ${0.1 * (1 - distance / connectionDistance)})`;
               ctx.lineWidth = 1;
               ctx.stroke();
             }
@@ -84,8 +90,20 @@ const AnimatedBackground: React.FC = () => {
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      resizeCanvas();
+      // Recréer les particules lors du redimensionnement
+      particles.length = 0;
+      const newParticleCount = window.innerWidth < 768 ? 50 : 100;
+      for (let i = 0; i < newParticleCount; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          size: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.5 + 0.2,
+        });
+      }
     };
 
     window.addEventListener('resize', handleResize);

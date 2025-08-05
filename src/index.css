@@ -47,6 +47,154 @@ section, div, main, header, footer {
   background-color: transparent !important;
 }
 
+/* Garantir la visibilité de tous les éléments sur mobile */
+@media (max-width: 768px) {
+  /* Forcer la visibilité de tous les éléments */
+  * {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Garantir que les sections sont visibles */
+  section {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 1 !important;
+  }
+
+  /* Garantir que les conteneurs sont visibles */
+  .container, .max-w-7xl, .mx-auto {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Garantir que les grilles sont visibles */
+  .grid {
+    display: grid !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Garantir que les flexbox sont visibles */
+  .flex {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Garantir que les textes sont visibles */
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    color: inherit !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Garantir que les images sont visibles */
+  img, video {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Garantir que les boutons sont visibles */
+  button, a {
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Garantir que les formulaires sont visibles */
+  input, textarea, select {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* Spécifiquement pour la section projets */
+  #projects {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    background: transparent !important;
+  }
+
+  #projects * {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  #projects .grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  #projects .flex {
+    display: flex !important;
+  }
+
+  #projects button {
+    display: inline-flex !important;
+  }
+
+  #projects img,
+  #projects video {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Améliorer la lisibilité sur mobile */
+  .text-white {
+    color: white !important;
+  }
+
+  .text-gray-400 {
+    color: rgb(156 163 175) !important;
+  }
+
+  /* Garantir que les backgrounds sont transparents */
+  .bg-transparent {
+    background-color: transparent !important;
+  }
+
+  /* Garantir que les z-index sont corrects */
+  .z-10 {
+    z-index: 10 !important;
+  }
+
+  .z-50 {
+    z-index: 50 !important;
+  }
+
+  /* Améliorer l'espacement sur mobile */
+  .px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-12 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+
+  /* Garantir que les animations fonctionnent */
+  .animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite !important;
+  }
+
+  /* Améliorer la performance sur mobile */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
 /* Scrollbar personnalisée */
 ::-webkit-scrollbar {
   width: 8px;

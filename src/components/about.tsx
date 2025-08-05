@@ -74,8 +74,8 @@ export default function About() {
     };
 
     return (
-        <section id="about" className="py-20 relative">
-            <div className="max-w-7xl mx-auto px-6">
+        <section id="about" className="py-12 md:py-20 relative bg-transparent">
+            <div className="max-w-7xl mx-auto px-4 md:px-6">
                 <motion.div
                     ref={ref}
                     variants={containerVariants}
@@ -83,14 +83,14 @@ export default function About() {
                     animate={inView ? "visible" : "hidden"}
                 >
                     {/* Titre de section */}
-                    <motion.div variants={itemVariants} className="text-center mb-16">
+                    <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
                         <AnimatedText
                             text="À propos de moi"
-                            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+                            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6"
                             type="word"
                             animation="slide"
                         />
-                        <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
+                        <p className="text-base md:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto px-4 md:px-0">
                             Découvrez mon parcours, mes compétences et ma passion pour le développement
                         </p>
                     </motion.div>
@@ -98,14 +98,14 @@ export default function About() {
                     {/* Portrait + Infos perso */}
                     <motion.div
                         variants={itemVariants}
-                        className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 mb-20"
+                        className="flex flex-col lg:flex-row items-center justify-center gap-6 md:gap-8 lg:gap-12 mb-16 md:mb-20"
                     >
                         {/* Photo avec effet */}
                         <motion.div
                             whileHover={{ scale: 1.05 }}
-                            className="relative"
+                            className="relative order-2 lg:order-1"
                         >
-                            <div className="w-64 h-80 md:w-80 md:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-1">
+                            <div className="w-56 h-72 md:w-64 md:h-80 lg:w-80 lg:h-96 rounded-2xl overflow-hidden bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-1">
                                 <img
                                     src={person.imageUrl}
                                     alt="Photo de Florian"
@@ -116,11 +116,11 @@ export default function About() {
                         </motion.div>
 
                         {/* Infos Perso */}
-                        <div className="max-w-xl space-y-6 text-center lg:text-left">
+                        <div className="max-w-xl space-y-4 md:space-y-6 text-center lg:text-left order-1 lg:order-2">
                             <div>
                                 <AnimatedText
                                     text={`Helloooo, je suis ${person.name}`}
-                                    className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4"
+                                    className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-3 md:mb-4"
                                     type="word"
                                     animation="slide"
                                     delay={0.2}
@@ -128,40 +128,40 @@ export default function About() {
                                 <AnimatedBadge
                                     variant="gradient"
                                     size="lg"
-                                    className="mb-6 text-lg md:text-xl lg:text-2xl"
+                                    className="mb-4 md:mb-6 text-base md:text-lg lg:text-xl"
                                 >
                                     {person.profession}
                                 </AnimatedBadge>
                             </div>
 
-                            <div className="space-y-4">
+                            <div className="space-y-3 md:space-y-4">
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
+                                    className="flex items-center text-gray-300 text-base md:text-lg justify-center lg:justify-start"
                                 >
-                                    <span className="w-3 h-3 bg-blue-400 rounded-full mr-4" />
-                                    <strong className="text-white text-lg md:text-xl">Âge :</strong> <span className="text-lg md:text-xl">{person.age}</span>
+                                    <span className="w-2 h-2 md:w-3 md:h-3 bg-blue-400 rounded-full mr-3 md:mr-4" />
+                                    <strong className="text-white text-base md:text-lg">Âge :</strong> <span className="text-base md:text-lg">{person.age}</span>
                                 </motion.div>
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
+                                    className="flex items-center text-gray-300 text-base md:text-lg justify-center lg:justify-start"
                                 >
-                                    <span className="w-3 h-3 bg-purple-400 rounded-full mr-4" />
-                                    <strong className="text-white text-lg md:text-xl">Adresse :</strong> <span className="text-lg md:text-xl">{person.address}</span>
+                                    <span className="w-2 h-2 md:w-3 md:h-3 bg-purple-400 rounded-full mr-3 md:mr-4" />
+                                    <strong className="text-white text-base md:text-lg">Adresse :</strong> <span className="text-base md:text-lg">{person.address}</span>
                                 </motion.div>
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
+                                    className="flex items-center text-gray-300 text-base md:text-lg justify-center lg:justify-start"
                                 >
-                                    <span className="w-3 h-3 bg-cyan-400 rounded-full mr-4" />
-                                    <strong className="text-white text-lg md:text-xl">Email :</strong> <span className="text-lg md:text-xl break-all">{person.email}</span>
+                                    <span className="w-2 h-2 md:w-3 md:h-3 bg-cyan-400 rounded-full mr-3 md:mr-4" />
+                                    <strong className="text-white text-base md:text-lg">Email :</strong> <span className="text-base md:text-lg break-all">{person.email}</span>
                                 </motion.div>
                                 <motion.div
                                     whileHover={{ x: 5 }}
-                                    className="flex items-center text-gray-300 text-lg md:text-xl justify-center lg:justify-start"
+                                    className="flex items-center text-gray-300 text-base md:text-lg justify-center lg:justify-start"
                                 >
-                                    <span className="w-3 h-3 bg-green-400 rounded-full mr-4" />
-                                    <strong className="text-white text-lg md:text-xl">Téléphone :</strong> <span className="text-lg md:text-xl">{person.phone}</span>
+                                    <span className="w-2 h-2 md:w-3 md:h-3 bg-green-400 rounded-full mr-3 md:mr-4" />
+                                    <strong className="text-white text-base md:text-lg">Téléphone :</strong> <span className="text-base md:text-lg">{person.phone}</span>
                                 </motion.div>
                             </div>
 
@@ -170,9 +170,9 @@ export default function About() {
                                 download
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:text-white text-base md:text-lg"
+                                className="inline-flex items-center gap-2 px-4 md:px-6 lg:px-8 py-2 md:py-3 lg:py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:text-white text-sm md:text-base lg:text-lg"
                             >
-                                <Download size={20} className="md:w-6 md:h-6" />
+                                <Download size={18} className="md:w-5 md:h-5" />
                                 Télécharger mon CV
                             </motion.a>
                         </div>
@@ -182,15 +182,15 @@ export default function About() {
                     <motion.div variants={itemVariants} className="text-center">
                         <AnimatedText
                             text="Mes Services"
-                            className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6"
+                            className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold mb-4 md:mb-6"
                             type="word"
                             animation="slide"
                         />
-                        <p className="text-gray-400 max-w-3xl mx-auto mb-12 text-base md:text-lg">
+                        <p className="text-gray-400 max-w-3xl mx-auto mb-8 md:mb-12 text-sm md:text-base lg:text-lg px-4 md:px-0">
                             Voici ce que je propose en tant que développeur passionné et polyvalent :
                         </p>
                         
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
                             {person.services.map((service, index) => (
                                 <motion.div
                                     key={index}
@@ -200,17 +200,17 @@ export default function About() {
                                         y: -5,
                                         boxShadow: "0 20px 40px rgba(0, 0, 0, 0.3)"
                                     }}
-                                    className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-6 md:p-8 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
+                                    className="bg-gradient-to-br from-gray-900/50 to-gray-800/50 p-4 md:p-6 lg:p-8 rounded-2xl border border-white/10 backdrop-blur-sm hover:border-blue-500/30 transition-all duration-300"
                                 >
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="p-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl text-blue-400">
+                                    <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                                        <div className="p-2 md:p-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl text-blue-400">
                                             {service.icon}
                                         </div>
-                                        <h4 className="text-lg md:text-xl font-semibold text-white">
+                                        <h4 className="text-base md:text-lg lg:text-xl font-semibold text-white">
                                             {service.title}
                                         </h4>
                                     </div>
-                                    <div className="h-1 w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-4" />
+                                    <div className="h-1 w-12 md:w-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-3 md:mb-4" />
                                     <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                                         {service.description}
                                     </p>
